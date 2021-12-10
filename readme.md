@@ -1,49 +1,34 @@
 # Geobase Parser
 
-## Start application:
+# Start application:
 
 - Go to source folder (`cd .\src\`)
-- Navigate to Web API (` cd .\GeobaseParser.Api\`)
+- Navigate to Web project (` cd .\GeobaseParser.Web\`)
 - Install NuGet packages (`dotnet restore`)
 - Build source (`dotnet build`)
 - Run source (`dotnet run`)
 - Open this `http://localhost:5000` link
+- Navigate `/swagger` part (`http://localhost:5000/swagger`)
+- Go to root folder (`cd .\wwwroot\`)
+- Navigate on client app (`cd .\ClientApp\`)
+- Install npm packages (`npm install`)
+- Build client app (`npm run-script build:dev`)
+- Run client app (`npm run-script start`)
+- Open in this portal `http://localhost:5001`
 
-## Build application:
+# Build application:
 
 - Go to source folder (`cd .\src\`)
-- Navigate to Web API (` cd .\GeobaseParser.Api\`)
+- Navigate to Web project (` cd .\GeobaseParser.Web\`)
 - Publish API source (`dotnet publish`)
-- Run application (`dotnet GeobaseParser.Api.dll --urls "http://localhost:5000"`)
-- Open in this portal (`http://localhost:5000`)
-
-## Test application:
-
-- Go to source folder (`cd .\src\`)
-- Navigate to Integration Test project (` cd .\GeobaseParser.IntegrationTest\`)
-- run Test API layer (`dotnet test`)
-- Navigate to Unit Test projet (` cd .\GeobaseParser.UnitTest\`)
-- run Test Data acess layer (`dotnet test`)
-
-## Containerize application:
-
-- Build image (`docker -t demo-api build .`)
-- Run image (`docker run demo-api`)
-- Open in this portal (`http://localhost:5000`)
-
-## Register image:
-
-- Create new repo (`https://hub.docker.com/repositories`)
-- Login hube (`docker login`)
-- Tag image (`docker tag levdeo/demoapi levdeo/demoapi`)
-- Push image (`docker push levdeo/demoapi`)
-- Pull image (`docker pull levdeo/demoapi`)
-- Run image (`docker run -it levdeo/demoapi`)
-- Open in this portal (`http://localhost:5000`)
-
-## Nginx balancer:
-
-- Go to root (`cd .\nginx`)
-- Build image (`docker-compose build`)
-- Run image (`docker-compose up -d --scale api=10`)
-- Open in this portal (`http://localhost:5000`) 
+- Go to root folder (`cd .\wwwroot\`)
+- Navigate to client app (`cd .\ClientApp\`)
+- Production build app (`npm run-script build`)
+- Copy the `dist` folder
+- Back on publish directory (`cd ..\..\bin\Debug\net5.0\publish\`)
+- Go to root folder (`cd .\wwwroot\`)
+- Create `ClientApp` folder
+- That created above the folder must be put in `dist` folder
+- Back to publish directory (`cd ..\..\`)
+- Run application (`dotnet GeobaseParser.Web.dll --urls "http://localhost:5000"`)
+- Open in this portal `http://localhost:5000`

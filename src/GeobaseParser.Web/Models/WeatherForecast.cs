@@ -1,6 +1,6 @@
 using System;
 
-namespace GeobaseParser.Api.Models
+namespace GeobaseParser.Web.Models
 {
     public class WeatherForecast
     {
